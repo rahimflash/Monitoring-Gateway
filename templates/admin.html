@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html>
+<html lang="en"> -->
+
+{% extends "base.html" %}
+{% block page_content %}
+    <head>
+        <!-- <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>ARCH SYSTEMS MONITORING PAGE</title>
+    
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        
+        <!--<link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+       <!-- <script src="js/bootstrap.min.js"></script>
+        <script src="js/fontawesome.min.js"></script>
+        <script src="js/jquery-3.3.1.slim.min.min.js"></script>
+        <script src="js/popper.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+    </head>
+
+    {% if current_user.is_authenticated %}
+<body>
+    <div class="dashboard">
+        <p style="font-size: 30px">ADMIN DASHBOARD</p>
+    </div>
+<section id="testimonials">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                  <p><a href="http://172.18.200.172/guacamole/#/" target="_blank" rel="noopener noreferrer"> <img src="{{ url_for('static', filename='guacamole-logo.jpg') }}" class="user" data-toggle="modal" data-target="#ceph"></a></p><hr>
+                  <h3 data-toggle="modal" data-target="#ceph"><a href="http://172.18.200.172/guacamole/#/" target="_blank" rel="noopener noreferrer" style="color: #981a32; font-size:20px; text-decoration: none;"> Apache Guacamole</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="col-md-4 offset-md-4 text-center">
+                <div class="profile">
+                    <p><a href="http://172.17.201.132:8080/" target="_blank" rel="noopener noreferrer"><img src="{{ url_for('static', filename='webssh_round.png') }}" class="user" data-toggle="modal" data-target="#cyber"> <hr>
+                        <h3 data-toggle="modal" data-target="#cyber"><a href="http://172.17.201.132:8080/" target="_blank" rel="noopener noreferrer" style="color: #981a32; font-size:20px; text-decoration: none;">WebSSH</a></h3>
+                 </div>
+             </div>
+         </div>
+    </div>
+</section>
+
+
+</body>
+    {% else %}
+    <div style="text-align: center; padding-top: 80px;">
+    <h1>Welcome To DataCenter Monitoring Page!</h1>
+    <p>Please <a href="{{ url_for('register') }}">Register</a> or <a href="{{ url_for('login') }}">Login</a>.</p>
+    {% endif %}
+</div>
+{% endblock %}

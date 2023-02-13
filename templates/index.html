@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<style>
+        details {
+          padding: 4px;
+          background-color: #fff;
+          box-shadow:  2px 2px 2px #e0e0e3;
+          cursor: pointer;
+        }
+        details > summary{
+                color: #981a32;
+                font-weight: bold;
+        }
+        details > group{
+                color: #454545;
+                font-weight:bold;
+        }
+        details > group > p > a{
+                color: #454545;
+        }
+        details > group > p > a:hover{
+                color: yellow;
+                text-decoration: none;
+        }
+        details > p > a{
+                color: #198a5f;
+        }
+
+</style>
+
+    {% if current_user.is_authenticated %}
+    <div style="margin: auto; padding-top:80px; padding-left: 10rem;">
+    <h1 style="text-align: center; box-shadow:  2px 2px 2px #e0e0e3; margin-bottom: 20px; background-color: #fff; text-transform: uppercase; margin: 0; padding: 20px 0; font-size: 22px; border-bottom: 8px solid #e0e0e3; color: #981a32;">Welcome, {{ current_user.username }}!</h1>
+    <body class="links">
+        <div>
+            <details>
+                    <summary> SECURITY </summary>
+            <p><a href="https://172.18.200.191/app/login?nextUrl=%2Fapp%2Fwazuh#/agents-preview/" target="_blank" rel="noopener noreferrer" > WAZUH MONITORING GATEWAY </a></p>
+            </details>
+            <details>
+                    <summary> DEVOPS </summary>
+                    <group>CEPH</group>
+            <p><a href="https://172.20.202.12:8443/#/login?returnUrl=%2Fdashboard" target="_blank" rel="noopener noreferrer"  > CEPH MONITORING GATEWAY </a></p>
+                    <group>KUBERNETES</group>
+            <p><a href="https://ranc.archservices.online/dashboard/home" target="_blank" rel="noopener noreferrer"  > RANCHER MONITORING GATEWAY </a></p>
+            </details>
+            
+            <details>
+                    <summary> NETWORK AND SUPPORT</summary>
+            <p><a href="http://192.168.123.180/" target="_blank" rel="noopener noreferrer" >  IT PRINTER MONITORING GATEWAY </a></p>
+    
+            </details>
+            <details>
+                    <summary> INFRASTRUCTURE </summary>
+            <p><a href="http://172.18.200.154/zabbix/" target="_blank" rel="noopener noreferrer"  > ZABBIX MONITORING GATEWAY </a></p>
+            <p><a href="https://10.234.66.22/" target="_blank" rel="noopener noreferrer"  > ILO MONITORING GATEWAY </a></p>
+            </details>
+        </div>
+    </body>
+    </div>
+    {% else %}
+    <div style="text-align: center; padding-top: 80px;">
+    <h1>Welcome To DataCenter Monitoring Page!</h1>
+    <p>Please <a href="{{ url_for('register') }}">Register</a> or <a href="{{ url_for('login') }}">Login</a>.</p>
+    {% endif %}
+    </div>
+{% endblock %}

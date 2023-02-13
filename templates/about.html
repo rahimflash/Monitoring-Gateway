@@ -1,0 +1,199 @@
+<!--<!DOCTYPE html>
+<html lang="en"> -->
+
+{% extends "base.html" %}
+{% block page_content %}
+    <head>
+        <!-- <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>ARCH SYSTEMS MONITORING PAGE</title>
+    
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        
+        <!--<link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+       <!-- <script src="js/bootstrap.min.js"></script>
+        <script src="js/fontawesome.min.js"></script>
+        <script src="js/jquery-3.3.1.slim.min.min.js"></script>
+        <script src="js/popper.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+    </head>
+
+    {% if current_user.is_authenticated %}
+<body>
+    <div class="dashboard">
+        <p>MONITORING DASHBOARD</p>
+    </div>
+    <div class="salut">
+        <p style='text-transform: uppercase;'>Welcome, {{ current_user.username }}!</p>
+    </div>
+<section id="testimonials">
+    <div class="container">
+        <div class="rows">
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='cloudstack.jpg') }}" class="user" data-toggle="modal" data-target="#cloudstack"> <hr>
+                        <h3 data-toggle="modal" data-target="#cloudstack">DevOps Cloudstack</h3>
+                </div>
+            </div>
+             <!-- Modal -->
+                <div class="modal fade" id="cloudstack" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3 style="text-align: center;" class="modal-title" id="exampleModalLabel">DevOps Cloudstack Monitoring URLs</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <h5 class="modal-body">
+                            <p><a href="http://172.18.200.154/zabbix/" target="_blank" rel="noopener noreferrer"  > ZABBIX MONITORING GATEWAY </a></p>                        </h5>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='k8s.jpg') }}" class="user" data-toggle="modal" data-target="#k8s"> <hr>
+                        <h3 data-toggle="modal" data-target="#k8s">DevOps Kubernetes</h3>
+                </div>
+            </div>
+             <!-- Modal -->
+                <div class="modal fade" id="k8s" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3 style="text-align: center;" class="modal-title" id="exampleModalLabel">DevOps Kubernetes Monitoring URLs</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <h5 class="modal-body">
+                            <p><a href="https://ranc.archservices.online/dashboard/home" target="_blank" rel="noopener noreferrer"  > RANCHER MONITORING GATEWAY </a></p>
+                        </h5>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='ceph.png') }}" class="user" data-toggle="modal" data-target="#ceph"> <hr>
+                        <h3 data-toggle="modal" data-target="#ceph">DevOps Storage</h3>
+                </div>
+            </div>
+             <!-- Modal -->
+                <div class="modal fade" id="ceph" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3 style="text-align: center;" class="modal-title" id="exampleModalLabel">DevOps Storage Monitoring URLs</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <h5 class="modal-body">
+                            <p><a href="https://172.20.202.12:8443/#/login?returnUrl=%2Fdashboard" target="_blank" rel="noopener noreferrer"  > CEPH MONITORING GATEWAY </a></p>
+                        </h5>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        <div class="col-md-4 text-center">
+            <div class="profile">
+                <img src="{{ url_for('static', filename='cyber.jpg') }}" class="user" data-toggle="modal" data-target="#cyber"> <hr>
+                    <h3 data-toggle="modal" data-target="#cyber">CyberSecurity</h3>
+            </div>
+        </div>
+         <!-- Modal -->
+            <div class="modal fade" id="cyber" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h3 style="text-align: center;" class="modal-title" id="exampleModalLabel">CyberSecurity Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <h5 class="modal-body">
+                    <p><a href="https://172.18.200.191/app/login?nextUrl=%2Fapp%2Fwazuh#/agents-preview/" target="_blank" rel="noopener noreferrer" > WAZUH MONITORING GATEWAY </a></p>
+                    </h5>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='infra.jpg') }}" class="user" data-toggle="modal" data-target="#infra"> <hr>
+                        <h3 data-toggle="modal" data-target="#infra">Infrastructure</h3>
+                </div>
+            </div>
+             <!-- Modal -->
+                <div class="modal fade" id="infra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3 style="text-align: center;" class="modal-title" id="exampleModalLabel">Infrastructure Monitoring URLs</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <h5 class="modal-body">
+                            <p><a href="https://10.234.66.22/" target="_blank" rel="noopener noreferrer"  > ILO MONITORING GATEWAY </a></p>
+                        </h5>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            <div class="col-md-4 text-center">
+                <div class="profile">
+                    <img src="{{ url_for('static', filename='network.jpg') }}" class="user" data-toggle="modal" data-target="#network"> <hr>
+                        <h3 data-toggle="modal" data-target="#network">Network & Security</h3>
+                </div>
+            </div>
+             <!-- Modal -->
+                <div class="modal fade" id="network" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h3 style="text-align: center;" class="modal-title" id="exampleModalLabel">Network & Security Monitoring URLs</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <h5 class="modal-body">
+                            <p><a href="http://192.168.123.180/" target="_blank" rel="noopener noreferrer" >  IT PRINTER MONITORING GATEWAY </a></p>
+                        </h5>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+    {% else %}
+    <div style="text-align: center; padding-top: 80px;">
+    <h1>Welcome To DataCenter Monitoring Page!</h1>
+    <p>Please <a href="{{ url_for('register') }}">Register</a> or <a href="{{ url_for('login') }}">Login</a>.</p>
+    {% endif %}
+</div>
+{% endblock %}
