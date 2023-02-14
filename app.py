@@ -24,7 +24,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 lm = LoginManager(app)
-
+#add a comment
 
 class User(UserMixin, db.Model):
     """User model."""
