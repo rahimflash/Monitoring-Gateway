@@ -1,6 +1,6 @@
 # Two Factor Authentication with Flask
 
-This repository contains the example application for my [Two Factor Authentication with Flask](http://blog.miguelgrinberg.com/post/two-factor-authentication-with-flask) blog article.
+This repository contains the example application for my [Two Factor Authentication with Flask]
 
 ## Installation
 
@@ -12,5 +12,4 @@ To install your application on your computer follow these steps:
 4. Run the application with `python app.py`.
 5. Go to `http://localhost:5000` in your address bar to connect to the application.
 
-See my [blog post](http://blog.miguelgrinberg.com/post/two-factor-authentication-with-flask) for detailed information on how this application works.
 
