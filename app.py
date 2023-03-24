@@ -1,11 +1,14 @@
 import os
+import yaml
+import MySQLdb.cursors
+from flask_mysqldb import MySQL
 import base64
 from io import BytesIO
-from flask import Flask, render_template, redirect, url_for, flash, session, \
+from flask import Flask, render_template, redirect, url_for, flash, session, g, request, \
     abort
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, logout_user, \
+from flask_login import LoginManager, UserMixin, login_user, logout_user,\
     current_user
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
@@ -19,12 +22,42 @@ from datetime import timedelta
 app = Flask(__name__)
 app.config.from_object('config')
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=5)
-
+app.secret_key =os.urandom(24)
+#configuring the mysql db
+db=yaml.load(open('db.yaml'))
+app.config['MYSQL_HOST']= db['mysql_host']
+app.config['MYSQL_USER']= db['mysql_user']
+app.config['MYSQL_PASSWORD']= db['mysql_password']
+app.config['MYSQL_DB']= db['mysql_db']
 # initialize extensions
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 lm = LoginManager(app)
+mysql=MySQL(app)
 #add a comment
+
+#----------------------------------------------------
+#-----the real deal....performs this action every time any request is made
+@app.before_request
+def before_request():
+    g.type=None
+    g.loggedin= None
+    g.id=None
+    g.email=None
+    g.Fname=None
+    if 'loggedin' in session:
+        g.type=session['type']
+        g.loggedin= session['loggedin']
+        g.id=session['id']
+        g.email=session['email']
+        g.Fname=session['Fname']
+
+def MergeDicts(dict1,dict2):
+    if isinstance(dict1,list) and isinstance(dict2,list):
+        return dict1 + dict2
+    elif isinstance(dict1,dict) and isinstance(dict2,dict):
+        return dict(list(dict1.items()) + list(dict2.items()))
+    return False
 
 class User(UserMixin, db.Model):
     """User model."""
@@ -68,8 +101,8 @@ def load_user(user_id):
 
 class RegisterForm(FlaskForm,):
     """Registration form."""
-    username = StringField('Username', validators=[Required(), Length(1, 64)], render_kw={'style': 'width: 30rem;'})
-    password = PasswordField('Password', validators=[Required()], render_kw={'style': 'width: 30rem;'})
+    username = StringField('Username', validators=[Required(), Length(min=3, max=20)], render_kw={'style': 'width: 30rem;'})
+    password = PasswordField('Password', validators=[Required(), Length(min=8, max=64)], render_kw={'style': 'width: 30rem;'})
     password_again = PasswordField('Password again',
                                    validators=[Required(), EqualTo('password')], render_kw={'style': 'width: 30rem;'})
     submit = SubmitField('Register')
@@ -77,8 +110,8 @@ class RegisterForm(FlaskForm,):
 
 class LoginForm(FlaskForm):
     """Login form."""
-    username = StringField('Username', validators=[Required(), Length(1, 64)], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
-    password = PasswordField('Password', validators=[Required()], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
+    username = StringField('Username', validators=[Required(), Length(min=3, max=20)], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
+    password = PasswordField('Password', validators=[Required(), Length(min=8, max=64) ], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
     token = StringField('Token', validators=[Required(), Length(6, 6)], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
     submit = SubmitField('Login', render_kw={'style': 'width: 10rem; margin-left: 15rem'})
 
@@ -87,13 +120,56 @@ class LoginForm(FlaskForm):
 def about():
     return render_template('about.html')
 
-@app.route('/admin')
-def admin():
+@app.route('/admin/index')
+def index():
+    if not g.type=='admin':
+        return redirect('/admin/login')
+    return render_template('index.html')
+
+@app.route('/admins')
+def admins():
     return render_template('admin.html')
 
-@app.route('/register', methods=['GET', 'POST'])
+#-----------------------------------------------------------------
+#---------------------ADMIN PAGE----------------------------------
+#-----------------------------------------------------------------
+@app.route('/admin/login', methods=['GET','POST'])
+def adminLogin():
+    msg=''
+    if request.method=='POST':
+        email=request.form['email']
+        password=request.form['password']
+        cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute('SELECT * FROM admin WHERE email = %s AND password=%s', (email,password))
+        account = cur.fetchone()
+        cur.close()
+        if account:
+            session['type']='admin'
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['email'] = account['email']
+            session['Fname']=account['Fname']
+            return redirect('/admin')
+        else:
+            msg='incorrect email/password'
+    return render_template('logins.html',msg=msg)
+
+@app.route('/admin')
+def admin():
+    if not g.type=='admin':
+        return redirect('/admin/login')
+    #cur=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    #cur.execute('SELECT * FROM shop')
+    #shop = cur.fetchall()
+    #cur.close()
+    #Fname=g.Fname
+    return render_template('index.html')
+
+@app.route('/admin/register', methods=['GET', 'POST'])
 def register():
     """User registration route."""
+    if not g.type=='admin':
+        return redirect('/admin/login')
     if current_user.is_authenticated:
         # if user is logged in we get out of here
         return redirect(url_for('about'))
@@ -176,6 +252,7 @@ def login():
 @app.route('/logout')
 def logout():
     """User logout route."""
+    session.clear()
     logout_user()
     return redirect(url_for('about'))
 

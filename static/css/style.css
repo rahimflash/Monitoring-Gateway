@@ -1,0 +1,148 @@
+/*set default margin and padding to zero*/
+*{margin:0px;
+  padding: 0px;
+  }
+
+
+/*remove auto text styling of a tags*/
+a{text-decoration: none;
+  color:black;}
+
+ 
+ /*hover display for all a-tags except ones already styled*/
+ a:hover{
+  text-decoration: none;
+  color:rgb(142, 0, 0)
+}
+
+
+/*carousel style*/
+#myCarousel
+{
+  width:79%;
+  float:right;
+}
+
+
+/*list styling*/
+li{
+  list-style: none;  
+}
+
+
+
+/*social media icon styling*/
+#social img
+{ 
+  width: 35px;
+  overflow: hidden;
+}
+
+
+/*footer stling*/
+footer
+ {
+    background-color: #f2f2f2;
+      padding: 25px;
+  }
+
+   
+
+/*button style for all buttons*/
+.btn{
+  background-color:red;
+  color: white;
+}
+
+   /*button hover for all buttons*/
+   .btn:hover{
+    background-color: white;
+    color: red;
+    box-shadow: 10px 10px 30px  #777;
+    
+    border-width: 2px;
+   }
+
+
+/*row stling for all rows*/
+.row{
+  background-color:
+  color: white;
+  padding: 35px;
+
+}
+
+
+
+/*clear both*/
+.clr{ clear: both; }
+
+
+/*login and signup container*/
+#container{
+  background-color: #f2f2f2; 
+  padding: 25px; 
+  border-radius: 10px;
+ margin-right: 450px;
+ margin-left: 450px;
+ margin-bottom: 400px;
+
+}
+
+/*login checkbox*/
+#logincheckbox{
+  padding-right: 5px;
+}
+
+
+#forgetpassword{
+  padding-left: 120px;
+}
+
+/*navbar title*/
+.navbar-brand{
+  color: red; 
+  background-color: white;
+  font-family:Georgia;
+}
+
+/*navbar title*/
+.navbar-brand strong
+{
+  color: red;
+}
+
+/*validation alerts*/
+.alert-danger{ background-color: red;
+color: white; }
+
+
+.alert-success{ background-color:green;
+color: white; }
+
+/*dropdown menu*/
+.dropdown-menu{
+  text-align: center;
+  background-color:#f2f2f2;
+}
+
+/*dropdown menu hover*/
+.dropdown-menu >li >a:hover{
+  background-color:red;
+  color:white;
+  box-shadow: 10px 10px 20px  #777;
+}
+
+/*glyphicon styling for all*/
+.glyphicon{
+  color: red;
+}
+
+
+/*show password button styling*/
+#showpasswordbutton{
+  background-color:#f2f2f2;
+   border-color:#f2f2f2; 
+   font-size: 20px;
+   border:none;
+}
