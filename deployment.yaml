@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-gateway
+spec:
+  selector:
+    matchLabels:
+      run: monitoring-gateway
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: monitoring-gateway
+    spec:
+      containers:
+        - name: monitoring-gateway
+          image: rahimflash/monitoring-gateway:latest
+          ports:
+            - containerPort: 80
+              protocol: TCP
