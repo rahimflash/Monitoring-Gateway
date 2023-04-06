@@ -107,12 +107,11 @@ class RegisterForm(FlaskForm,):
                                    validators=[Required(), EqualTo('password')], render_kw={'style': 'width: 30rem;'})
     submit = SubmitField('Register')
 
-
 class LoginForm(FlaskForm):
     """Login form."""
     username = StringField('Username', validators=[Required(), Length(min=3, max=20)], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
     password = PasswordField('Password', validators=[Required(), Length(min=8, max=64) ], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
-    token = StringField('Token', validators=[Required(), Length(6, 6)], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
+    token = StringField('Token', validators=[Required(), Length(6)], render_kw={'style': 'width: 25rem; margin-left: 0rem;'})
     submit = SubmitField('Login', render_kw={'style': 'width: 10rem; margin-left: 15rem'})
 
 
@@ -261,4 +260,4 @@ def logout():
 db.create_all()
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=80, debug=True)
+    app.run(host='0.0.0.0',port=8086, debug=True)
