@@ -1,4 +1,5 @@
 -- Active: 1678731090111@@127.0.0.1@3306@flash
+CREATE DATABASE IF NOT EXISTS flash;
 USE `flash`;
 
 --
