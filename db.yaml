@@ -1,4 +1,5 @@
 mysql_host: 'localhost'
 mysql_user: 'root'
-mysql_password: 'djbankuta'
+mysql_password: 'password'
 mysql_db: 'flash'
+mysql_port: '3306'

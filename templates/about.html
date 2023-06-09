@@ -1,11 +1,11 @@
 <!--<!DOCTYPE html>
 <html lang="en"> -->
 
-{% extends "base.html" %}
+{% extends "bases.html" %}
 {% block page_content %}
     <head>
-        <!-- <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <meta charset="UTF-8"> 
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ARCH SYSTEMS MONITORING PAGE</title>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
@@ -27,17 +27,17 @@
     {% if current_user.is_authenticated %}
 <body>
     <div class="dashboard">
-        <p style="padding: 20px;">MONITORING DASHBOARD</p>
+        <p style="font-size: 30px">MONITORING DASHBOARD</p>
     </div>
-    <div class="salut">
+   <!--- <div class="salut">
         <p style='text-transform: uppercase;'>Welcome, {{ current_user.username }}!</p>
-    </div>
-<section id="testimonials" style="margin-top 30px;">
+    </div> -->
+<section id="testimonials" style="margin-top: 30px;">
     <div class="container">
         <div class="rows">
             <div class="col-md-4 text-center">
                 <div class="profile">
-                    <img src="{{ url_for('static', filename='cloudstack.jpg') }}" class="user" data-toggle="modal" data-target="#cloudstack"> <hr>
+                    <img src="{{ url_for('static', filename='cloudstack.jpg') }}" class="user"  data-toggle="modal" data-target="#cloudstack"> <hr>
                         <h3 data-toggle="modal" data-target="#cloudstack">DevOps Cloudstack</h3>
                 </div>
             </div>
