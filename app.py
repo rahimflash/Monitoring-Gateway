@@ -117,7 +117,7 @@ class LoginForm(FlaskForm):
 
 @app.route('/')
 def about():
-    return render_template('about.html')
+    return render_template('dashboard.html')
 
 @app.route('/admin/index')
 def index():

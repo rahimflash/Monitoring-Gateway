@@ -1,0 +1,329 @@
+ <!DOCTYPE html>
+<html> 
+
+
+<head>
+     <meta charset="UTF-8"> 
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+     <title>ARCH SYSTEMS MONITORING PAGE</title>
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashstyle.css') }}">
+
+</head>
+
+    {% if current_user.is_authenticated %}
+
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-brand" href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='archwhite.png') }}" width="60" height="40" class="d-inline-block align-top" alt=""></a>
+            <h4 class="navbar-heading"><a href="{{ url_for('about') }}"> ARCH SYSTEMS MONITORING PAGE</a></h4>
+            <a class="navbar-logout" href="{{ url_for('logout') }}">
+          <i class="fas fa-sign-out-alt navbar-logout-icon">  Logout </i>
+            </a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 side-menu">
+                  <!-- Logo -->
+                <div class="logo">
+                <a href="{{ url_for('about') }}">
+                  <img src="{{ url_for('static', filename='arch.png') }}" alt="Logo" class="img-fluid">
+                </a>
+                </div>
+                <!-- Side Menu Content -->
+                <div class="side-menu-content">
+                <h4>Dashboard</h4>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">Monitoring</a></li>
+                    <li><a href="#">Servers</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </div>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <div class="dashboard">Group IT Monitoring Gateway</div>
+                <div class="row main-content ">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal1">
+                            <a href="#">
+                            <img src="{{ url_for('static', filename='ks.png') }}" class="img-fluid"><hr>
+                            <h5>DevOps Kubernetes</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal2">
+                            <a href="#">
+                            <img src="{{ url_for('static', filename='cls.jpg') }}" class="img-fluid"><hr>
+                            <h5>DevOps Cloudstack</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal3">
+                             <a href="#">
+                            <img src="{{ url_for('static', filename='cephs.jpeg') }}" class="img-fluid"><hr>
+                            <h5>DevOps Storage</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal4">
+                            <a href="https:teleport.quantumgroupgh.com" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ url_for('static', filename='tel2s.png') }}" class="img-fluid"><hr>
+                            <h5>Teleport</h5>
+                            </a>
+                        </div>
+                    </div>
+                      <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal5">
+                            <a href="#">
+                            <img src="{{ url_for('static', filename='infra1s.png') }}" class="img-fluid"><hr>
+                            <h5>Infrastructure</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal6">
+                            <a href="#">
+                            <img src="{{ url_for('static', filename='it1s.jpg') }}" class="img-fluid"><hr>
+                            <h4>Network & Support</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal7">
+                             <a href="#">
+                            <img src="{{ url_for('static', filename='sec2.png') }}" class="img-fluid"><hr>
+                            <h5>CyberSecurity</h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="column" data-toggle="modal" data-target="#modal8">
+                            <a href="http://172.18.200.172/guacamole/#/" target="_blank" rel="noopener noreferrer">
+                          <img src="{{ url_for('static', filename='ap2s.png') }}" class="img-fluid"><hr>
+                            <h5>Apache Guacamole</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal content goes here -->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal1Label">DevOps Kubernetes Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <ul>
+                        <li><a href="https://ranc.archservices.online/dashboard/" target="_blank" rel="noopener noreferrer">Production Grade Cluster</a></li><hr>
+                        <li><a href="https://localranch.kubranch.online/dashboard/" target="_blank" rel="noopener noreferrer">Local Kubernetes Cluster</a></li><hr>
+                        <li><a href="https://testlocalranch.kubranch.online/dashboard/" target="_blank" rel="noopener noreferrer">Test Kubernetes Cluster</a></li><hr>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal content goes here -->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal2Label">DevOps Cloudstack Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <ul>
+                        <li><a href="http://172.18.200.154/zabbix/" target="_blank" rel="noopener noreferrer">Zabbix Monitoring Gateway</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 2</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 3</a></li><hr>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal content goes here -->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal3Label">DevOps Storage Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <ul>
+                        <li><a href="https://172.20.202.12:8443/#/login?returnUrl=%2Fdashboard" target="_blank" rel="noopener noreferrer">Ceph Monitoring Gateway</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 2</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 3</a></li><hr>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <!--<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="modal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                !-- Modal content goes here --
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal4Label">Teleport</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    !-- Modal body content goes here --
+                    <ul>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div> -->
+        <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="modal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal content goes here -->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal5Label">Infrastructure Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <ul>
+                        <li><a href="https://10.234.66.22/" target="_blank" rel="noopener noreferrer">ILO Monitoring Gateway</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 2</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 3</a></li><hr>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal content goes here -->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal6Label">Network & Support Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <ul>
+                        <li><a href="http://192.168.123.180/" target="_blank" rel="noopener noreferrer">IT Printer Monitoring Gateway</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 2</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 3</a></li><hr>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="modal7Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                <!-- Modal content goes here -->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal7Label">CyberSecurity Monitoring URLs</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Modal body content goes here -->
+                    <ul>
+                        <li><a href="https://172.18.200.191/app/login?nextUrl=%2Fapp%2Fwazuh#/agents-preview/" target="_blank" rel="noopener noreferrer">Wazuh Monitoring Gateway</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 2</a></li><hr>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Link 3</a></li><hr>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+       <!--- <div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="modal8Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-md">
+            <div class="modal-content">
+                !-- Modal content goes here --
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modal8Label">Modal 1</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    !-- Modal body content goes here --
+                    <ul>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                    </ul>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div> -->
+      <!-- Footer 
+<footer>
+        <p>© 2023 Quantum Group Ltd. All rights reserved.</p>
+</footer> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--<!DOCTYPE html>
+<html lang="en"> -->
+    {% else %}
+{% extends "base.html" %}
+    {% endif %}
+
+
+</body>
+</html>
+

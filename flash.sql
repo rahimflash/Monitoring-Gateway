@@ -1,5 +1,6 @@
 -- Active: 1678731090111@@127.0.0.1@3306@flash
 CREATE DATABASE IF NOT EXISTS flash;
+
 USE `flash`;
 
 --
@@ -28,8 +29,9 @@ CREATE TABLE `admin` (
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` VALUES
-(1, 'admin@gmail.com', '12345678','admin', 'admin',  '0245453642');
 (2, 'twumgilbert7@gmail.com', '12345678','Gilbert', 'Twum',  '0245453642');
+(3, 'admin@quantumgroupgh.com', '<>?xzsawq#@!','Admin', 'admin',  '0245453642');
+
 
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;

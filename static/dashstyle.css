@@ -1,0 +1,253 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body
+{
+    font-weight: normal!important;
+    color: #212529 !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+
+} 
+
+body, html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.container-fluid {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+        .column {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+.column {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    margin-left: 20px; /* Add left margin to create space between columns and side menu */
+    flex-direction: column;
+    justify-content: center;
+} 
+
+.column img {
+    border-radius: 7px; /* Apply border-radius to the images */
+    max-width: 100%;
+    height: auto; 
+    border: 3px solid #fff;
+    max-height: 100%;
+    object-fit: contain; /* Ensure the image fits within the container */
+} 
+.side-menu {
+    background-color: #f8f9fa;
+    padding: 20px;
+    min-height: 100vh;
+    margin-right: 50px;
+}
+
+.main-content {
+    flex-grow: 1;
+    margin-top: 80px;
+}
+
+.dashboard {
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    text-align: center;
+    color: #981A32;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.side-menu h4,
+.side-menu ul {
+    color: #981A32; /* Change text color to wine */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu .side-menu-content {
+   margin-left: 40px;
+    margin-top: 60px; /* Shift the side menu content down */
+}
+
+.side-menu ul {
+    margin-top: 20px; /* Shift the ul down */
+    justify-content: center; /* Start items from the left */
+    text-decoration: none;
+}
+
+.side-menu ul li {
+    margin-bottom: 20px;
+}
+
+ .side-menu ul li:after {
+    content: "";
+    display: block;
+    clear: both;
+    border-top: 1px solid #ccc; /* Add horizontal line */
+    margin-top: 20px; /* Adjust spacing between lines */
+}
+
+.side-menu a {
+  color: #981A32;
+  text-decoration: none;
+}
+
+
+.column a,
+.column a h5 {
+    color: #981A32;
+    margin-top: 15px;
+    text-decoration: none; /* Remove text decorations from links */
+}
+
+.modal-dialog {
+    max-width: 600px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    text-align: center;
+    padding: 2px 10px;
+    background-color: #981A32;
+    color: white;
+  }
+  
+  .modal-body {
+      padding: 20px 16px;
+      font-size: 20px;
+}
+
+.modal-body ul li{
+    list-style: none;
+    padding: 0;
+}
+
+.modal-body a {
+    text-decoration: none;
+    color: #981A32;
+}
+
+.modal-footer {
+    padding: 0;
+}
+
+.navbar {
+    background-color: #981A32;
+    color: white;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #fff;
+}
+.navbar a i:hover{
+    color: #981A32;
+    background-color: #fff;
+    padding: 8px;
+}
+
+
+.navbar-heading {
+    margin-right: auto;
+    margin-left: 20px; /* Add margin to the right of the logo */
+    padding-top: 10px; /* Add padding to the top of the heading */
+    font-weight: bold;
+}
+
+.navbar-logout {
+    font-size: 20px;
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.navbar-logout-icon {
+    margin-right: 8px; /* Add margin to the left of the logout icon */
+}
+
+footer {
+    background-color: #981A32;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
