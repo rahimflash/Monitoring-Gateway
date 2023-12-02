@@ -1,6 +1,6 @@
-# Two Factor Authentication with Flask
+# Flask-based Monitoring Gateway Platform with 2FA Integration
 
-This repository contains the example application for my [Two Factor Authentication with Flask]
+This collection houses the sample application for my Monitoring Gateway platform. It utilizes Flask to implement Two-Factor Authentication (2FA) for both authentication and authorization purposes.
 
 ## Installation
 
