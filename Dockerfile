@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.14.0rc3
 
 # Copy source code to working directory
 COPY . /monitoring-gateway/
